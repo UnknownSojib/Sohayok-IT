@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sohayok IT - Build Your IT Career</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Icons and Fonts -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+      <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+    
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .hero-pattern {
+            background-color: #1e293b;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23334155' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+        .fade-enter-active, .fade-leave-active { transition: opacity 0.3s ease; }
+        .fade-enter-from, .fade-leave-to { opacity: 0; }
+        .slide-up-enter-active, .slide-up-leave-active { transition: all 0.4s ease; }
+        .slide-up-enter-from, .slide-up-leave-to { transform: translateY(20px); opacity: 0; }
+    </style>
+</head>
+<body class="bg-gray-50 text-slate-800 antialiased">
+
+<div id="app" class="flex flex-col min-h-screen">
+
+    <!-- Navbar -->
+    <nav class="bg-white shadow-sm sticky top-0 z-40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20">
+                <div class="flex items-center gap-2">
+                    <div class="bg-indigo-600 text-white p-2 rounded-lg">
+                        <i class="fa-solid fa-laptop-code text-xl"></i>
+                    </div>
+                  <span class="font-bold text-2xl text-slate-900 tracking-tight"> Sohayok <span class="text-indigo-600">IT</span></span>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="" class="text-slate-600 hover:text-indigo-600 font-medium transition">Home</a>
+                    <a href="#courses" class="text-slate-600 hover:text-indigo-600 font-medium transition">Courses</a>
+                    <a href="#Success Stories" class="text-slate-600 hover:text-indigo-600 font-medium transition">Success Stories</a>
+                    <a href="#Contact_Us" class="text-slate-600 hover:text-indigo-600 font-medium transition">Contact</a>
+                </div>
+                <div class="flex items-center gap-3">
+                    <button @click="openPaymentModal" class="text-slate-600 hover:text-indigo-600 font-semibold px-4 py-2 transition flex items-center gap-2">
+                        <i class="fa-solid fa-receipt"></i> Pay Fees
+                    </button>
+                    <button @click="openModal" class="bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-2.5 rounded-full font-semibold transition shadow-lg shadow-indigo-100 transform hover:scale-105 active:scale-95">
+                        Free Class
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- Hero Section -->
+    <header class="hero-pattern text-white py-20 lg:py-32 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="text-center md:text-left">
+                    <div class="inline-block bg-indigo-500/20 border border-indigo-400/30 rounded-full px-4 py-1.5 mb-6 backdrop-blur-sm">
+                        <span class="text-indigo-200 text-sm font-semibold tracking-wide uppercase">New Batches Starting Soon</span>
+                    </div>
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
+                        Build Your IT Career with <span class="text-indigo-400">Sohayok IT</span>
+                    </h1>
+                    <p class="text-slate-300 text-lg md:text-xl mb-8 leading-relaxed max-w-lg mx-auto md:mx-0">
+                        Professional career-leading skills with our Online & Offline training programs. Get a certificate, Work from anywhere. Earn without limits.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+                        <button @click="scrollToCourses" class="bg-white text-slate-900 hover:bg-slate-100 px-8 py-3.5 rounded-lg font-bold transition flex items-center justify-center gap-2">
+                            Explore Courses <i class="fa-solid fa-arrow-right text-indigo-600"></i>
+                        </button>
+                        <button @click="openModal" class="border border-slate-500 hover:border-white hover:text-white text-slate-300 px-8 py-3.5 rounded-lg font-bold transition">
+                            Talk to Counselor
+                        </button>
+                    </div>
+                </div>
+                <!-- Hero Image Placeholder -->
+                <!-- Hero Image Placeholder -->
+
+                <div class="relative hidden md:block">
+                    <div class="bg-indigo-600/20 absolute -inset-4 rounded-2xl blur-2xl"></div>
+                    <div class="bg-slate-800 border border-slate-700 rounded-xl p-6 shadow-2xl relative">
+                        <div class="flex gap-2 mb-4">
+                            <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                            <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                            <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                        </div>
+                        <div class="space-y-3 font-mono text-sm">
+                            <div class="flex"><span class="text-purple-400 w-8">1</span><span class="text-blue-400">class</span> <span class="text-yellow-300 ml-2">Student</span> <span class="text-white ml-2">{</span></div>
+                            <div class="flex"><span class="text-slate-500 w-8">2</span><span class="ml-4 text-purple-400">constructor</span><span class="text-white">(name, course) {</span></div>
+                            <div class="flex"><span class="text-slate-500 w-8">3</span><span class="ml-8 text-blue-300">this</span><span class="text-white">.name = name;</span></div>
+                            <div class="flex"><span class="text-slate-500 w-8">4</span><span class="ml-8 text-blue-300">this</span><span class="text-white">.skills = [</span><span class="text-green-400">'Laravel'</span><span class="text-white">, </span><span class="text-green-400">'Vue.js'</span><span class="text-white">];</span></div>
+                            <div class="flex"><span class="text-slate-500 w-8">5</span><span class="ml-8 text-blue-300">this</span><span class="text-white">.status = </span><span class="text-green-400">'Hired'</span><span class="text-white">;</span></div>
+                            <div class="flex"><span class="text-slate-500 w-8">6</span><span class="ml-4 text-white">}</span></div>
+                            <div class="flex"><span class="text-slate-500 w-8">7</span><span class="text-white">}</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Hero Section -->
+
+    <!-- Courses Section -->
+    <section id="courses" class="py-20 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-12">
+                <div>
+                    <h2 class="text-3xl font-bold text-slate-900 mb-2">Our Top Courses</h2>
+                    <p class="text-slate-600">Practical training with industry-standard tools.</p>
+                </div>
+                <div class="flex gap-2 mt-6 md:mt-0 overflow-x-auto pb-2 w-full md:w-auto">
+                    <button 
+                        v-for="cat in categories" 
+                        :key="cat"
+                        @click="selectedCategory = cat"
+                        :class="selectedCategory === cat ? 'bg-indigo-600 text-white shadow-md' : 'bg-white text-slate-600 border border-slate-200'"
+                        class="px-5 py-2 rounded-full text-sm font-semibold transition-all whitespace-nowrap"
+                    >
+                        {{ cat }}
+                    </button>
+                </div>
+            </div>
+
+            <transition-group name="slide-up" tag="div" class="grid md:grid-cols-3 gap-8">
+                <div v-for="course in filteredCourses" :key="course.id" class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden hover:shadow-xl transition-all flex flex-col group">
+                    <div class="h-44 bg-slate-900 flex items-center justify-center relative overflow-hidden">
+                        <i :class="course.icon" class="text-7xl text-white/10 absolute transform group-hover:scale-125 transition-transform"></i>
+                        <i :class="course.icon" class="text-5xl text-indigo-400 relative z-10"></i>
+                    </div>
+                    <div class="p-6 flex-grow flex flex-col">
+                        <h3 class="text-xl font-bold text-slate-900 mb-2">{{ course.title }}</h3>
+                        <p class="text-slate-500 text-sm mb-6 flex-grow">{{ course.description }}</p>
+                        <div class="flex items-center justify-between pt-4 border-t border-slate-100">
+                            <span class="text-lg font-bold text-slate-900">৳ {{ course.price.toLocaleString() }}</span>
+                            <button @click="selectCourseFor(course)" class="text-indigo-600 font-bold text-sm hover:underline">
+                                Enroll Now &rarr;
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </transition-group>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="bg-slate-900 text-slate-400 py-16 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+                <div class="space-y-6">
+                    <div class="flex items-center gap-2">
+                        <div class="bg-indigo-600 text-white p-2 rounded-lg">
+                            <i class="fa-solid fa-laptop-code text-xl"></i>
+                        </div>
+                        <span class="font-bold text-2xl text-white">Sohayok <span class="text-indigo-400">IT</span></span>
+                    </div>
+                    <p class="text-sm leading-relaxed">
+                        Discover excellence at Sohayok IT Institute, where quality IT education meets expert guidance. Learn from experienced trainers, explore advanced facilities, and begin your path to success.
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="https://facebook.com/UnknownSojib" class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-indigo-600 hover:text-white transition">
+                            <i class="fa-brands fa-facebook-f"></i>
+                        </a>
+                        <a href="https://github.com/UnknownSojib" class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-indigo-600 hover:text-white transition">
+                            <i class="fa-brands fa-linkedin-in"></i>
+                        </a>
+                        <a href="https://github.com/UnknownSojib" class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-indigo-600 hover:text-white transition">
+                            <i class="fa-brands fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-bold mb-6">Quick Links</h4>
+                    <ul class="space-y-4 text-sm">
+                        <li><a href="#" class="hover:text-indigo-400 transition">About Us</a></li>
+                        <li><a href="#courses" class="hover:text-indigo-400 transition">Our Courses</a></li>
+                        <li><a href="#" class="hover:text-indigo-400 transition">Success Stories</a></li>
+                        <li><a href="#" class="hover:text-indigo-400 transition">Privacy Policy</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-bold mb-6">Popular Courses</h4>
+                    <ul class="space-y-4 text-sm">
+                        <li><a href="#" class="hover:text-indigo-400 transition">Basic Computer Course</a></li>
+                        <li><a href="#" class="hover:text-indigo-400 transition">Graphic Design</a></li>
+                        <li><a href="#" class="hover:text-indigo-400 transition">Web Development</a></li>
+                        <li><a href="#" class="hover:text-indigo-400 transition">Motion Graphics courses</a></li>
+                    </ul>
+                </div>
+
+                <div class="space-y-4">
+                    <h4 class="text-white font-bold mb-6">Contact Us</h4>
+                    <div class="flex gap-3 text-sm">
+                        <i class="fa-solid fa-location-dot text-indigo-400 mt-1"></i>
+                        <p>Buruz Bazar, Gabtoli, Bogura, Bangladesh</p>
+                    </div>
+                    <div class="flex gap-3 text-sm">
+                        <i class="fa-solid fa-phone text-indigo-400 mt-1"></i>
+                        <p>+880 1705 855 121</p>
+                    </div>
+                    <div class="flex gap-3 text-sm">
+                        <i class="fa-solid fa-envelope text-indigo-400 mt-1"></i>
+                        <p>info@sohayokit.com</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pt-8 border-t border-slate-800 flex flex-col md:flex-row justify-between items-center gap-4 text-xs">
+                <p>&copy; 2026 Sohayok IT Institute. All rights reserved.</p>
+                <div class="flex gap-6">
+                    <span class="flex items-center gap-1"><i class="fa-solid fa-shield-halved text-green-500"></i>Government Certificate</span>
+                    <span class="flex items-center gap-1"><i class="fa-solid fa-circle-check text-blue-500"></i> Govt. Approved</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Lead Modal -->
+    <transition name="fade">
+        <div v-if="showModal" class="fixed inset-0 z-50 overflow-y-auto">
+            <div class="flex items-center justify-center min-h-screen px-4">
+                <div class="fixed inset-0 bg-slate-900/90 transition-opacity" @click="closeModal"></div>
+                <div class="relative bg-white rounded-2xl shadow-2xl max-w-md w-full p-8">
+                    <button @click="closeModal" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600">
+                        <i class="fa-solid fa-xmark text-xl"></i>
+                    </button>
+                    <h3 class="text-2xl font-bold text-slate-900 mb-6">Free Class</h3>
+                    <form @submit.prevent="submitLead" class="space-y-4">
+                        <input v-model="leadForm.name" type="text" placeholder="Full Name" required class="w-full border border-slate-300 rounded-lg px-4 py-2.5 outline-none focus:ring-2 focus:ring-indigo-500">
+                        <input v-model="leadForm.phone" type="tel" placeholder="Phone Number" required class="w-full border border-slate-300 rounded-lg px-4 py-2.5 outline-none focus:ring-2 focus:ring-indigo-500">
+                        <select v-model="leadForm.course" class="w-full border border-slate-300 rounded-lg px-4 py-2.5 outline-none focus:ring-2 focus:ring-indigo-500">
+                            <option value="" disabled>Select Course</option>
+                            <option v-for="c in allCourseTitles" :key="c">{{ c }}</option>
+                        </select>
+                        <button type="submit" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 rounded-lg shadow-lg">
+                            <span v-if="submitting">Processing...</span>
+                            <span v-else>Confirm Request</span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </transition>
+
+    <!-- Payment Modal -->
+    <transition name="fade">
+        <div v-if="showPaymentModal" class="fixed inset-0 z-50 overflow-y-auto">
+            <div class="flex items-center justify-center min-h-screen px-4">
+                <div class="fixed inset-0 bg-slate-900/90 transition-opacity" @click="closePaymentModal"></div>
+                <div class="relative bg-white rounded-2xl shadow-2xl max-w-lg w-full overflow-hidden">
+                    <div class="bg-slate-50 p-6 border-b border-slate-100 flex justify-between items-center">
+                        <h3 class="font-bold text-slate-900 flex items-center gap-2">
+                            <i class="fa-solid fa-lock text-green-600"></i> Secure Payment Gateway
+                        </h3>
+                        <button @click="closePaymentModal" class="text-slate-400 hover:text-slate-600">
+                            <i class="fa-solid fa-xmark text-xl"></i>
+                        </button>
+                    </div>
+                    <div class="p-8">
+                        <div class="flex gap-2 mb-8 bg-slate-100 p-1 rounded-xl">
+                            <button @click="paymentType = 'Tuition'" :class="paymentType === 'Tuition' ? 'bg-white shadow-sm text-indigo-600' : 'text-slate-500'" class="flex-1 py-2 rounded-lg font-bold text-sm transition">Tuition Fee</button>
+                            <button @click="paymentType = 'Exam'" :class="paymentType === 'Exam' ? 'bg-white shadow-sm text-indigo-600' : 'text-slate-500'" class="flex-1 py-2 rounded-lg font-bold text-sm transition">Exam Fee</button>
+                        </div>
+                        <form @submit.prevent="processPayment" class="space-y-4">
+                            <input v-model="paymentForm.studentId" type="text" placeholder="Student ID (e.g., SHT-2024)" required class="w-full border p-3 rounded-lg outline-none focus:ring-2 focus:ring-indigo-500">
+                            <div v-if="paymentType === 'Exam'">
+                                <select v-model="paymentForm.examSelection" class="w-full border p-3 rounded-lg outline-none focus:ring-2 focus:ring-indigo-500">
+                                    <option value="" disabled>Select Exam</option>
+                                    <option value="5000">Certification Final (৫,০০০৳)</option>
+                                    <option value="2500">Re-take Exam (২,৫০০৳)</option>
+                                </select>
+                            </div>
+                            <div v-else>
+                                <select v-model="paymentForm.courseSelection" class="w-full border p-3 rounded-lg outline-none focus:ring-2 focus:ring-indigo-500">
+                                    <option value="" disabled>Enrolled Course</option>
+                                    <option v-for="c in allCourseTitles" :key="c">{{ c }}</option>
+                                </select>
+                            </div>
+                            <div class="relative">
+                                <span class="absolute left-4 top-3.5 font-bold text-slate-400">৳</span>
+                                <input :value="paymentType === 'Exam' ? paymentForm.examSelection : paymentForm.customAmount" @input="e => paymentForm.customAmount = e.target.value" :readonly="paymentType === 'Exam'" type="number" placeholder="Enter Amount" required class="w-full border pl-8 p-3 rounded-lg font-bold">
+                            </div>
+                            <button type="submit" :disabled="processingPayment" class="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-4 rounded-xl shadow-xl mt-4">
+                                <span v-if="processingPayment"><i class="fa-solid fa-circle-notch fa-spin"></i> Processing...</span>
+                                <span v-else>Confirm & Pay Now</span>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </transition>
+
+</div>
+
+<script>
+    const { createApp, ref, computed } = Vue;
+
+    createApp({
+        setup() {
+            const showModal = ref(false);
+            const showPaymentModal = ref(false);
+            const paymentType = ref('Tuition');
+            const processingPayment = ref(false);
+            const selectedCategory = ref('All');
+            const submitting = ref(false);
+
+            const leadForm = ref({ name: '', phone: '', course: '', mode: 'Online' });
+            const paymentForm = ref({ studentId: '', examSelection: '', courseSelection: '', customAmount: '' });
+
+            const categories = ['All', 'Certificate Course', 'Development', 'Motion Graphics'];
+            const courses = [
+                { id: 1, title: 'Basic Computer Course', category: 'Certificate Course', price: 5000, icon: 'fa-brands fa-aws', description: 'Basic Computer Course Certificate'},
+                { id: 2, title: 'Web Development', category: 'Development', price: 5000, icon: 'fa-brands fa-python', description: 'Complete React & Node.js mastery.'},
+                { id: 3, title: 'Motion Graphics courses', category: 'Motion Graphics', price: 5000, icon: 'fa-brands fa-react', description: ' Animated Graphic Designs, Effects, Transitions.'}  
+            ];
+
+            const filteredCourses = computed(() => selectedCategory.value === 'All' ? courses : courses.filter(c => c.category === selectedCategory.value));
+            const allCourseTitles = computed(() => courses.map(c => c.title));
+
+            const openPaymentModal = () => { paymentForm.value = { studentId: '', examSelection: '', courseSelection: '', customAmount: '' }; showPaymentModal.value = true; };
+            const closePaymentModal = () => showPaymentModal.value = false;
+            const processPayment = () => {
+                processingPayment.value = true;
+                setTimeout(() => {
+                    alert('Payment Successful! Check your email for the receipt.');
+                    processingPayment.value = false;
+                    closePaymentModal();
+                }, 2000);
+            };
+
+            const openModal = () => showModal.value = true;
+            const closeModal = () => showModal.value = false;
+            const selectCourseFor = (course) => { leadForm.value.course = course.title; showModal.value = true; };
+            const scrollToCourses = () => document.getElementById('courses').scrollIntoView({ behavior: 'smooth' });
+
+            const submitLead = () => {
+                submitting.value = true;
+                setTimeout(() => {
+                    alert('Success! Our counselor will call you shortly.');
+                    submitting.value = false;
+                    closeModal();
+                }, 1000);
+            };
+
+            return {
+                showModal, showPaymentModal, paymentType, processingPayment, paymentForm,
+                selectedCategory, categories, filteredCourses, allCourseTitles, leadForm, submitting,
+                scrollToCourses, openModal, openPaymentModal, closePaymentModal, processPayment,
+                selectCourseFor, closeModal, submitLead
+            };
+        }
+    }).mount('#app');
+</script>
+</body>
+</html>
