@@ -1,2 +1,4 @@
-# Sohayok-IT
-Discover excellence at Sohayok IT Institute, where quality IT education meets expert guidance. Learn from experienced trainers, explore advanced facilities, and begin your path to success.
+# Build Your IT Career with Sohayok IT
+Professional career-leading skills with our Online &
+Offline training programs. Get a certificate, 
+Work from anywhere. Earn without limits.
